@@ -1,3 +1,4 @@
+package Daily_code_4;
 import java.util.Arrays;
 
 public class Daily_code_4 {
