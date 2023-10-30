@@ -1,53 +1,51 @@
-function findSum(array){
-    let sum = 0; // get half value of all numbers after divided them by 2
-    for(let i = 0 ; i < array.length; i ++){
-        sum = array[i] + sum ; 
+function findSum(array) {
+    let sum = 0; // calculate the total sum of the numbers in the array
+    for (let i = 0; i < array.length; i++) {
+        sum = array[i] + sum;
     }
-    const half = sum/2;
-    console.log(half);
-    const largest = array[array.length - 1];
-    if(half > largest)
-    {
-        let left = 0;
-        let right = array.length - 1;
 
-        while (left < right) {
-            const currentSum = array[left] + array[right];
+    const half = sum / 2;
 
-            if (currentSum === half) {
-                return [array[left], array[right]];
-            } else if (currentSum < half) {
-                left++;
-            } else {
-                right--;
-            }
-        }
+    if (sum % 2 !== 0) {
+        // If the sum is not even, it's not possible to find a pair
+        return false;
+    }
 
-    return null;
-    }
-    else{
-        return null;
-    }
-}
-function sort(arr){
-    const arrLength = arr.length;
-    for(let i = 1 ; i < arrLength ; i++){
-        let key =  arr[i];
-        let j = i - 1;
-        while(j >= 0 && arr[j] > key){
-            arr[j + 1] = arr[j];
-            j = j - 1;
-        }
-        arr[j + 1] = key;
-    }
+    return canSum(array, half);
 }
 
-const array = [20,30,10,40,60,80,90,110];
-sort(array);
-console.log(array);
+function canSum(array, targetSum) {
+    const memo = new Map();
+
+    function checkSum(index, targetSum) {
+        if (targetSum === 0) {
+            return true;
+        }
+        if (index < 0 || targetSum < 0) {
+            return false;
+        }
+
+        if (memo.has(index + ',' + targetSum)) {
+            return memo.get(index + ',' + targetSum);
+        }
+
+        const include = checkSum(index - 1, targetSum - array[index]);
+        const exclude = checkSum(index - 1, targetSum);
+        const result = include || exclude;
+
+        memo.set(index + ',' + targetSum, result);
+
+        return result;
+    }
+
+    return checkSum(array.length - 1, targetSum);
+}
+
+const array = [20, 30, 10, 40, 60, 80, 90, 5,15,110];
 const result = findSum(array);
-if(result){
+
+if (result) {
     console.log("True");
-}else{
-    console.log("false");
+} else {
+    console.log("False");
 }
