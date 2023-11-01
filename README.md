@@ -18,7 +18,7 @@ Do this faster than the naive method of repeated multiplication.
 
 For example, pow(2, 10) should return 1024.
 
-### Question of Day 61 - 2023/10/21
+### Question of Day 60 - 2023/10/21
 
 This problem was asked by Facebook.
 
