@@ -10,7 +10,7 @@ function isPerfectNumber(num) {
       sum += parseInt(numStr[i]);
     }
   
-    // Check if the sum of digits is equal to 10
+    
     return sum === 10;
   }
   
