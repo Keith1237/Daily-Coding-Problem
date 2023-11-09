@@ -27,3 +27,20 @@ Given a multiset of integers, return whether it can be partitioned into two subs
 For example, given the multiset {15, 5, 20, 10, 35, 15, 10}, it would return true, since we can split it up into {15, 5, 10, 15, 10} and {20, 35}, which both add up to 55.
 
 Given the multiset {15, 5, 20, 10, 35}, it would return false, since we can't split it up into two subsets that add up to the same sum.
+
+### Question of Day 70 - 2023/10/31
+
+This problem was asked by Microsoft.
+
+A number is considered perfect if its digits sum up to exactly 10.
+
+Given a positive integer n, return the n-th perfect number.
+
+For example, given 1, you should return 19. Given 2, you should return 28.
+
+### Question of Day 73 - 2023/11/03
+
+This problem was asked by Google.
+
+Given the head of a singly linked list, reverse it in-place.
+
